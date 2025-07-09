@@ -21,7 +21,7 @@ def run_pollutant_generation_model(pollutants: list[str], watershed: str, ignore
 
     connection = pg(pg_url, pg_db, pg_user, pg_pass)
 
-    inputs_path = Path.cwd() / 'pollution_generation_model' / 'inputs'
+    inputs_path = (Path(__file__).parent / 'inputs').resolve()
     industrial_data = str(inputs_path / 'industrial.xlsx')
     recall_points = str(inputs_path / "recall_points.xlsx")
     table_name = 'cens_v4_1_prova'    #Taula del cens industrial amb estimacions
