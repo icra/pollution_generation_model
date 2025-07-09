@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: pollution_generation_model
+Version: 1.0
+Requires-Dist: pandas
+Requires-Dist: openpyxl
+Requires-Dist: psycopg2-binary

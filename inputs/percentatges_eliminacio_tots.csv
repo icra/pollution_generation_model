@@ -1,0 +1,110 @@
+﻿Nom,id_compost,% eliminació per hora
+Crom,1,3.546054619
+Coure,2,4.38593522
+Zinc,3,2.915601768
+Arsènic,4,4.318126554
+Seleni,5,3.096957995
+Cadmi,6,2.251942887
+Mercuri,7,2.993247149
+Plom,8,3.278078985
+Niquel,9,1.641072677
+Naftalè,10,1.136973895
+Antracè,11,0.852064
+Fluorantè,12,3.455430059
+Benzo(b)fluorantè,13,0.888975754
+Benzo(k)fluorantè,14,3.096957995
+Benzo(a)pirè,15,3.096957995
+Indeno(1.2.3-C.D)pirè,16,3.096957995
+Benzo(g.h.i)perilè,17,3.096957995
+Octilfenols,18,5.236986665
+Nonilfenols,19,1.861561622
+Ciprofloxacina,20,7.271880809
+Sulfametoxazol,21,1.737146013
+Trimetoprim,22,1.92298517
+Venlafaxina,23,1.359441925
+o-Desmetilvenlafaxina,24,3.096957995
+Atrazina,25,3.096957995
+Alaclor,26,4.279967989
+Clofenvinfós,27,2.534763714
+Clorpirifòs,28,6.895711045
+Diclorvós,29,15.0409626
+Isoproturon,30,4.279967989
+Simazina,31,15.0409626
+Diuron,32,0.077562676
+Triclorometà,33,2.643750147
+Terbutilazina,34,0.000622814
+Hexaclorobutadiè,35,6.408891675
+Pentaclorobenzè,36,2.703555732
+Hexaclorobenzè,37,3.096957995
+alfa-HCH,38,3.096957995
+gamma-HCH,39,3.096957995
+Aldrin,40,1.348040362
+beta-HCH,41,3.096957995
+Isodrin,42,1.346889115
+Dicofol,43,3.096957995
+Endosulfan,44,0.657755237
+Dieldrin,45,3.096957995
+Endrin,46,3.096957995
+o.p-DDT,47,3.096957995
+p.p-DDD ,48,3.096957995
+p.p-DDT,49,1.47913111
+1.1.1-Tricloroetà,5,14.10710855
+Tetraclorur de carboni,51,15.41311712
+Benzè,52,3.096957995
+1.2-Dicloroetà,53,4.892802282
+Tricloroetilè,54,7.691172556
+Toluè,55,4.866467643
+Etilbenzè,56,3.747921576
+m.p-Xilè,57,3.455430059
+o-Xilè,58,3.455430059
+Triclorobenzè,59,3.096957995
+Fluorurs,60,3.096957995
+Metaflumizona,61,3.096957995
+Amoxicilina,62,5.165814623
+Clotrimazol,63,1.174150269
+Fluconazol,64,3.096957995
+Imazalil,65,0.805584453
+Ipconazol,66,3.096957995
+Metconazol,67,3.096957995
+Miconazol,68,1.251276458
+Penconazol,69,3.096957995
+Procloraz,70,3.096957995
+Tebuconazol,71,3.096957995
+Tetraconazol,72,3.096957995
+Dimoxistrobina,73,3.096957995
+Famoxadona,74,3.096957995
+Èter difenílic polibromat,75,3.096957995
+Cloroalcans,76,3.096957995
+Diclorometà,77,4.279967989
+2-etilhelix,78,5.612568732
+Pentaclorofenol,79,3.096957995
+Tetracloroetilè,80,7.691172556
+Compostos de tributilestany,81,3.096957995
+Trifluralina,82,3.096957995
+PFOS,83,0.019523277
+Quinoxifeno,84,3.096957995
+Dioxines,85,3.096957995
+Aclonifè,86,3.096957995
+Bifenox,87,3.096957995
+Cibutrina,88,3.096957995
+Cipermetrina,89,3.096957995
+Hexabromociclodecà,90,6.113976515
+Heptaclor,91,3.096957995
+Terbutrina,92,0.206467145
+Crom VI,93,3.096957995
+Cianurs totals,94,3.096957995
+Diclorobenzè,95,3.096957995
+Metolaclor,96,0.718896785
+Nitrats,97,1.440113231
+Amoni,98,1.440113231
+Nitrogen orgànic,99,1.440113231
+Fosfats,100,1.534207927
+Fòsfor orgànic,101,1.534207927
+DBO 5 dies,102,4.840299612
+Clorobenzè,103,3.479961727
+Indeno(1.2.3-C.D),104,3.479961727
+Xilè,105,3.479961727
+Nitrogen Total,106,1.440113231
+Fòsfor total,107,1.534207927
+Amoniac,108,1.440113231
+Nitrogen Kjeldahl,109,1.440113
