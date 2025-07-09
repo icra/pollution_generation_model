@@ -6,6 +6,8 @@ import json
 import sys
 import getpass
 import os
+import importlib.resources
+from pathlib import Path
 
 def run_pollutant_generation_model(pollutants: list[str], watershed: str, ignore_industries: bool = True, removal_rate_path: str | Path | None = None, edar_data_xlsx: str | Path | None = None, ):
     pg_url = "217.61.208.188"
@@ -21,20 +23,23 @@ def run_pollutant_generation_model(pollutants: list[str], watershed: str, ignore
 
     connection = pg(pg_url, pg_db, pg_user, pg_pass)
 
-    inputs_path = (Path(__file__).parent / 'inputs').resolve()
-    industrial_data = str(inputs_path / 'industrial.xlsx')
-    recall_points = str(inputs_path / "recall_points.xlsx")
-    table_name = 'cens_v4_1_prova'    #Taula del cens industrial amb estimacions
-        
-    if not removal_rate_path:
-        removal_rate_path = str(inputs_path / 'atenuacions_generacions.xlsx')
+    # Access the 'inputs' directory inside the installed package
+    with importlib.resources.path("pollution_generation_model.inputs", "") as inputs_path:
+        inputs_path = inputs_path.resolve()
 
-    if not edar_data_xlsx:
-        edar_data_xlsx = str(inputs_path / 'edar_data.xlsx')
+        industrial_data = str(inputs_path / 'industrial.xlsx')
+        recall_points = str(inputs_path / "recall_points.xlsx")
+        table_name = 'cens_v4_1_prova'  # Taula del cens industrial amb estimacions
 
-    industries_to_edar, industries_to_river = connection.get_industries_to_edar_and_industry_separated(table_name)
-    id_discharge_to_volumes = read_industries(industries_to_river, industrial_data, recall_points, pollutants, connection, removal_rate_path, watershed)      #Dades de contaminants abocats directament a riu o a sortida depuradora
-    edars_calibrated = read_edars(pollutants, industries_to_edar, edar_data_xlsx, removal_rate_path, recall_points, watershed, ignore_industries=ignore_industries)    #Dades de contaminants despres de ser filtrats per edar
+        if not removal_rate_path:
+            removal_rate_path = str(inputs_path / 'atenuacions_generacions.xlsx')
+
+        if not edar_data_xlsx:
+            edar_data_xlsx = str(inputs_path / 'edar_data.xlsx')
+    
+        industries_to_edar, industries_to_river = connection.get_industries_to_edar_and_industry_separated(table_name)
+        id_discharge_to_volumes = read_industries(industries_to_river, industrial_data, recall_points, pollutants, connection, removal_rate_path, watershed)      #Dades de contaminants abocats directament a riu o a sortida depuradora
+        edars_calibrated = read_edars(pollutants, industries_to_edar, edar_data_xlsx, removal_rate_path, recall_points, watershed, ignore_industries=ignore_industries)    #Dades de contaminants despres de ser filtrats per edar
 
     result = {
         "wwtp": edars_calibrated,
