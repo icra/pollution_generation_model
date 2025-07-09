@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "run_pollution_generation_model=pollution_generation_model.pipeline:main",
+            "run_pollution_generation_model=pollution_generation_model.main:main",
         ],
     },
 )
