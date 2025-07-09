@@ -41,6 +41,29 @@ def run_pollutant_generation_model(pollutants: list[str], watershed: str, ignore
         id_discharge_to_volumes = read_industries(industries_to_river, industrial_data, recall_points, pollutants, connection, removal_rate_path, watershed)      #Dades de contaminants abocats directament a riu o a sortida depuradora
         edars_calibrated = read_edars(pollutants, industries_to_edar, edar_data_xlsx, removal_rate_path, recall_points, watershed, ignore_industries=ignore_industries)    #Dades de contaminants despres de ser filtrats per edar
 
+    
+    #output in the following format:
+    # {
+    #     "wwtp": {
+    #         "edar_eu_code": {
+    #             "eu_code": edar_eu_code,
+    #             "dc_code": edar_cd_code,
+    #             "nom": nom edar,
+    #             "population_real": poblacio tractada per edar,
+    #             "configuration": [P, SN, UF, RO, etc.] #technologies used in the WWTP
+    #             "compounds_effluent": {
+    #                 "q": effluent flow in m3/day,
+    #                 "pollutant_1": load in kg/day,
+    #                 "pollutant_2": load in kg/day,
+    #                 ...
+    #             }
+    #         }
+    #     },
+    #     "discharge_to_river": {
+    #         ... 
+    #     }
+    # }
+
     result = {
         "wwtp": edars_calibrated,
         "discharge_to_river": id_discharge_to_volumes if not ignore_industries else {},

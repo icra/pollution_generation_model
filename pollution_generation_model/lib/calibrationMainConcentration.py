@@ -320,7 +320,7 @@ def estimate_effluent(removal_rate, listEdars, contaminants_i_nutrients, ignore_
                         #load_influent_industrial *= (1 - (calibrated_parameters[contaminant][configuration] / 100))
 
 
-                compounds_effluent[contaminant] = load_influent_filtered  # kg
+                compounds_effluent[contaminant] = load_influent_filtered  # kg/dia
 
                 """
                 compounds_effluent[contaminant] = {
