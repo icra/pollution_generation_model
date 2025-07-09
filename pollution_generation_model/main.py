@@ -1,6 +1,6 @@
 from pathlib import Path
-from pollution_generation_model.lib.calibrationMainConcentration import read_industries, read_edars
-from pollution_generation_model.lib.db.ConnectPostgree import ConnectDb as pg
+from .lib.calibrationMainConcentration import read_industries, read_edars
+from .lib.db.ConnectPostgree import ConnectDb as pg
 import argparse
 import json
 import sys
