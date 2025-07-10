@@ -23,6 +23,8 @@ If the variable is not set, you will be prompted for the password during executi
 ```bash
 from pollution_generation_model.main import run_pollutant_generation_model
 
+os.environ["icra_db_password"] = "your_real_password"
+
 result = run_pollutant_generation_model(
     pollutants=["Venlafaxina", "Ciprofloxacina"],
     watershed="llobregat",
@@ -34,7 +36,13 @@ result = run_pollutant_generation_model(
 print(result)
 ```
 
-## 🧾 Command-line Arguments
+## 🧾 From Command-line Arguments
+Use the script with the command:
+```bash
+run_pollution_generation_model
+```
+### Arguments
+
 | Argument              | Type     | Required | Description                                                                 |
 |-----------------------|----------|----------|-----------------------------------------------------------------------------|
 | `--watershed`         | string   | ✅ Yes       | Watershed to model. Choices: `muga`, `ter`, `fluvia`, `llobregat`, `sud`, `tordera`. |
@@ -43,6 +51,10 @@ print(result)
 | `--wwtp_treatments`   | path     | No       | Path to Excel file with WWTP configuration data.                           |
 | `--ignore_industries` | flag     | No       | When used, only domestic sources are considered (industries ignored). Default is True.      |```
 
+### Example
+```bash
+run_pollution_generation_model --watershed ter --pollutants Venlafaxina Ciprofloxacina
+```
 
 
 ## 📂 Data Files
