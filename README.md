@@ -37,7 +37,7 @@ print(result)
 ```
 
 ## 🧾 From Command-line Arguments
-Use the script with the command:
+Run the pollution generation model using the following command:
 ```bash
 run_pollution_generation_model
 ```
