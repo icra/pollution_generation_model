@@ -5,7 +5,18 @@ import statistics
 import openpyxl
 import pandas as pd
 from sqlalchemy import create_engine
+import os
+import getpass
 
+def create_icra_engine():
+    #check if icra_db_password is set in environment variables
+    pg_pass = os.getenv("icra_db_password")
+    
+    if not pg_pass:
+        print("Environment variable 'icra_db_password' not set.")
+        pg_pass = getpass.getpass("Please enter the database password for ICRA db: ")
+
+    return create_engine(f'postgresql://traca_user:{pg_pass}@217.61.208.188:5432/traca_1')
 
 class ConnectDb:
     """A simple to connect to postgree db"""
@@ -17,7 +28,7 @@ class ConnectDb:
             user=user,
             password=password)
 
-        self.engine = create_engine('postgresql://traca_user:EdificiH2O!@217.61.208.188:5432/traca_1')
+        self.engine = create_icra_engine()
 
         try:
             # create a cursor

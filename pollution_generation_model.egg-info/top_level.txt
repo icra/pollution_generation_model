@@ -1,1 +1,0 @@
-pollution_generation_model

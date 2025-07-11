@@ -1,2 +1,0 @@
-[console_scripts]
-run_pollution_generation_model = pollution_generation_model.main:main
