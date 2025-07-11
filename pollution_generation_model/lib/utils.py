@@ -25,35 +25,56 @@ def add_data_to_txtinout(pt, compounds, exco_om_df, pollutants_om_df) -> None:
         
     if 'DBO 5 dies' in compounds:
         dbo = compounds["DBO 5 dies"]
-        exco_om_df.loc[exco_om_df['name'] == pt, 'cbod'] += dbo
+        exco_om_df.loc[exco_om_df['name'] == pt, 'cbod'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'cbod'].astype(float) + dbo
+        )
 
     if 'Fòsfor orgànic' in compounds:
         fosfor = compounds["Fòsfor orgànic"]
-        exco_om_df.loc[exco_om_df['name'] == pt, 'sedp'] += fosfor
+        exco_om_df.loc[exco_om_df['name'] == pt, 'sedp'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'sedp'].astype(float) + fosfor
+        )
 
     if 'Nitrogen orgànic' in compounds:
-        ptl_n = compounds["Nitrogen orgànic"]  #organic nitrogen
-        exco_om_df.loc[exco_om_df['name'] == pt, 'orgn'] += ptl_n
+        ptl_n = compounds["Nitrogen orgànic"]  # organic nitrogen
+        exco_om_df.loc[exco_om_df['name'] == pt, 'orgn'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'orgn'].astype(float) + ptl_n
+        )
 
     if 'Amoniac' in compounds:
-        nh3_n = compounds["Amoniac"]  #ammonia
-        exco_om_df.loc[exco_om_df['name'] == pt, 'nh3'] += nh3_n
+        nh3_n = compounds["Amoniac"]  # ammonia
+        exco_om_df.loc[exco_om_df['name'] == pt, 'nh3'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'nh3'].astype(float) + nh3_n
+        )
 
     if 'Nitrats' in compounds:
-        no3_n = compounds["Nitrats"]  #nitrate
-        exco_om_df.loc[exco_om_df['name'] == pt, 'no3'] += no3_n
+        no3_n = compounds["Nitrats"]  # nitrate
+        exco_om_df.loc[exco_om_df['name'] == pt, 'no3'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'no3'].astype(float) + no3_n
+        )
 
     if 'q' in compounds:
-        cabal = compounds["q"]            
-        exco_om_df.loc[exco_om_df['name'] == pt, 'flo'] += cabal
+        cabal = compounds["q"]
+        exco_om_df.loc[exco_om_df['name'] == pt, 'flo'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'flo'].astype(float) + cabal
+        )
 
     if 'Fosfats' in compounds:
         fosfats = compounds["Fosfats"]
-        exco_om_df.loc[exco_om_df['name'] == pt, 'solp'] += fosfats
+        exco_om_df.loc[exco_om_df['name'] == pt, 'solp'] = (
+            exco_om_df.loc[exco_om_df['name'] == pt, 'solp'].astype(float) + fosfats
+        )
 
-        
-    #Per cadascun dels contaminants que no va a recall_dat, posar-lo a recall_pollutants_dat
-    for contaminant in contaminants_i_nutrients:            
+    # Per cadascun dels contaminants que no va a recall_dat, posar-lo a recall_pollutants_dat
+    for contaminant in contaminants_i_nutrients:
         if contaminant not in ["DBO 5 dies", "Fòsfor orgànic", "Nitrogen orgànic", "Amoniac", "Nitrats", "Fosfats"]:
             load = compounds[contaminant]
-            pollutants_om_df.loc[(pollutants_om_df['recall_rec'] == pt) & (pollutants_om_df['pollutants_pth'] == contaminant), 'load'] += load
+            pollutants_om_df.loc[
+                (pollutants_om_df['recall_rec'] == pt) & 
+                (pollutants_om_df['pollutants_pth'] == contaminant), 'load'
+            ] = (
+                pollutants_om_df.loc[
+                    (pollutants_om_df['recall_rec'] == pt) & 
+                    (pollutants_om_df['pollutants_pth'] == contaminant), 'load'
+                ].astype(float) + load
+            )
